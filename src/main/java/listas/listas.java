@@ -4,12 +4,12 @@ import java.util.*;
 
 public class listas {
 
-    // Método que combina dos listas ordenadas
+
     public static List<Integer> merge(List<Integer> list1, List<Integer> list2) {
         List<Integer> result = new ArrayList<>();
         int i = 0, j = 0;
 
-        // Combina las dos listas mientras haya elementos en ambas
+        // Combina las dos listas
         while (i < list1.size() && j < list2.size()) {
             if (list1.get(i) <= list2.get(j)) {
                 result.add(list1.get(i));
@@ -20,37 +20,31 @@ public class listas {
             }
         }
 
-        // Añade los elementos restantes de list1 si los hay
         while (i < list1.size()) {
             result.add(list1.get(i));
             i++;
         }
-
-        // Añade los elementos restantes de list2 si los hay
+        // Añade los elementos restantes
         while (j < list2.size()) {
             result.add(list2.get(j));
             j++;
         }
-
         return result;
     }
-
     public static void main(String[] args) {
         if (args.length != 2) {
-            System.out.println("Por favor, ingresa dos listas de números separadas por comas.");
+            System.out.println("ingresa las 2 listas separando los numeros por coma");
             return;
         }
 
-        // Convertir argumentos en listas de números
         List<Integer> list1 = convertir(args[0]);
         List<Integer> list2 = convertir(args[1]);
 
-        // Llamada al método merge y mostrar resultado
+        // llama metodo merge
         List<Integer> listaCombinada = merge(list1, list2);
         System.out.println("Lista combinada: " + listaCombinada);
     }
-
-    // Método para convertir la entrada de argumentos a una lista de enteros
+    // convertir argumentos en lista numero entero
     private static List<Integer> convertir(String input) {
         String[] items = input.split(",");
         List<Integer> lista = new ArrayList<>();
